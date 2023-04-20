@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upgrades Search</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        body {
+            background-image: url("upgradeгугл.jpg");
+            background-size: auto;
+            background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="buttons">
+        <button id="search-button">Розширений пошук</button>
+        <button class="back-button" onclick="window.history.back()">Назад</button>
+    </div>
+    <div class="forms-container">
+      <form>
+        <input id="query1" placeholder="Знайти із… «усіма цими словами»">
+      </form>
+      <form>
+        <input id="query2" placeholder="Знайти з… «саме цим словом або фразою»">
+      </form>
+      <form>
+        <input id="query3" placeholder="Знайти з… «будь-яким із цих слів»">
+      </form>
+      <form>
+        <input id="query4" placeholder="Знайти з… «жодне з цих слів»">
+      </form>
+    </div>
+
+    <script>
+        const searchButton = document.getElementById('search-button');
+        searchButton.addEventListener('click', () => {
+           const query1 = document.querySelector('input#query1').value;
+           const query2 = document.querySelector('input#query2').value;
+           const query3 = '"' + document.querySelector('input#query3').value + '"';
+           const query4 = '-' + document.querySelector('input#query4').value;
+           const url = `https://www.google.com/search?q=${encodeURIComponent(query1)}+${encodeURIComponent(query2)}+${encodeURIComponent(query3)}+${encodeURIComponent(query4)}`;
+           window.location.href = url;
+        });
+    </script>
+
+  </body>
+</html>

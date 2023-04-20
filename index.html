@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Google</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-image: url(гугл.jpg);
+        background-size: auto;
+        background-repeat: no-repeat;
+      }
+      
+      #top-buttons {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px;
+      }
+      
+      #top-buttons button {
+        background-color: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="search-container">
+      <form id="search-form">
+        <input type="text" name="q" placeholder="Пошук">
+      </form>
+      <div class="buttons">
+        <button id="search-button">Пошук</button>
+        <button id="lucky-button">Мені пощастить</button>
+      </div>
+      <div class="top-buttons">
+        <button id="images-button">Картинки</button>
+        <button id="Upgrades">Розширений пошук</button>
+      </div>
+    </div>
+    
+    <script>
+      const searchInput = document.querySelector('input[name="q"]');
+      const searchForm = document.querySelector('#search-button');
+      const luckyButton = document.querySelector('#lucky-button');
+      const imagesButton = document.querySelector('#images-button');
+  
+      searchForm.addEventListener('click', (event) => {
+        event.preventDefault();
+        const searchTerm = searchInput.value;
+        const searchUrl = `https://www.google.com/search?q=${searchTerm}`;
+        window.location.href = searchUrl;
+      });
+      
+      luckyButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const searchUrl = 'https://www.google.com/search?q=';
+        window.location.href = `${searchUrl}&btnI=I%27m+Feeling+Lucky`;
+      });
+      
+      imagesButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        const searchTerm = searchInput.value;
+        const searchUrl = `https://www.google.com/search?q=${searchTerm}&tbm=isch`;
+        window.location.href = searchUrl;
+      });
+
+      Upgrades.addEventListener('click', (event) => {
+        event.preventDefault();
+        const searchUrl = `UpgradeSearch.html`;
+        window.location.href = searchUrl;
+      });
+
+    </script>
+  </body>
+</html>
