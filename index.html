@@ -57,8 +57,10 @@
       
       luckyButton.addEventListener('click', (event) => {
         event.preventDefault();
-        const searchUrl = 'https://www.google.com/search?q=';
-        window.location.href = `${searchUrl}&btnI=I%27m+Feeling+Lucky`;
+        const searchTerm = searchInput.value;
+        const searchUrl = `https://www.google.com/search?q=${searchTerm}&btnI=I%27m+Feeling+Lucky`;
+        window.location.href = searchUrl;
+
       });
       
       imagesButton.addEventListener('click', (event) => {
